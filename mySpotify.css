@@ -1,0 +1,233 @@
+body {
+    /* elimina tutto lo spazio intorno */
+    margin: 0px;
+    padding: 0px;
+    /* background-color: blanchedalmond; */
+}
+
+#app-container {
+    /* vh = vertical heigh */
+    min-height: 100vh;
+    width: 100%;  
+}
+
+/* You want sogns to be to the right of the page --> display:flex */
+#main {
+    display: flex;
+    min-height: 100vh;
+    padding-bottom: 90px;
+}
+
+#menu {
+    min-width: 230px;
+    width: 230px;
+    background-color: rgb(21, 21, 21);
+    color: white;
+}
+
+#menu img {
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#menu li {
+    line-height: 3em;
+    text-transform: uppercase;
+    /* remove the dot from the list*/
+    list-style: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+#songs {
+    background-color:rgb(33, 32, 32);
+    color: white;
+    /* this will take all remaining space */
+    flex-grow: 1; 
+    padding-bottom: 30px;
+    overflow: hidden;
+}
+
+#search {
+    display: flex;
+}
+
+#search input[type=text] {
+    background: rgb(28, 28, 28);
+    color: white;
+    border: 1px solid white;
+    border-radius: 0;
+}
+
+#search input[type=button] {
+    background: rgb(18, 18, 18);
+    color: white;
+    border: 1px solid white;
+    border-radius: 0;
+}
+
+#player {
+    width: 100%;
+    height: 90px;
+    background-color: rgb(45, 44, 44);
+    color: white;
+    /* bottom bar to be fixed */
+    position: fixed;
+    /* fixed to the bottom of the page */
+    bottom: 0;
+    /* so everything else slides underneath */
+    z-index: 100;
+    /* line-height allows to center elements in the middle of the element, vertical axis */
+    line-height: 90px;
+    /* to center elements in the middle of element on the horizontal axis*/
+    text-align: center;
+}
+
+.player-content {
+    display: flex;
+}
+
+.player-content img {
+    height: 90px;
+}
+
+.player-content p {
+    margin-top: 0;
+    margin-left: 20px;
+    font-size: 24px;
+}
+
+h2 {
+    margin-left: 20px;
+    text-transform: uppercase;
+}
+
+.song-list {
+    white-space: nowrap; /* this works only the white slider isn't always visible*/
+    overflow-x: auto;
+    padding-top: 20px;
+    padding-bottom: 20px; 
+}
+
+/* take code from David Bowie lesson --> .css code */ 
+/* così com'è la card prendo tutto lo spazio orizzontalmente, perchè di default "display:block" */
+.song-card {
+    width: 250px;
+    height: 250px;
+    display: inline-block;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 1px 5px rgb(50, 47, 47);
+    transition: box-shadow 200ms;
+    position: relative;
+    color: white;
+    user-select: none;
+    margin-left: 20px;
+}
+
+.song-card::before {
+    content: "";
+    display: block;
+    position: absolute; 
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to top, black 0%, transparent 80%);
+    z-index: 1;
+}
+
+.song-card .song-card-image {
+    height: 100%;
+    object-fit: cover;
+}
+
+.song-card:hover {
+   box-shadow: 0 6px 20px black;
+}
+
+.song-card:hover .song-class-info {
+   transform: translateX(100px);
+   opacity: 0;
+}
+
+.song-card:hover .song-card-play {
+   transform: translateX(0px);
+}
+
+.song-class-info {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   text-align: center;
+   right: 0;
+   padding: 5px 10px;
+   z-index: 5;
+   user-select: none;
+   transition: transform 0.2s, opacity .2s;
+}
+
+.song-card-artist {
+   font-size: 0.9em;
+   font-weight: bold;
+   line-height: 1.2em;
+}
+
+.song-card-album {
+   font-size: 0.8em;
+   line-height: 1em; 
+}
+
+.song-card-title {
+   font-size: 1.0em;
+   line-height: 1.5em; 
+}
+
+.song-card-artist,
+.song-card-album,
+.song-card-title {
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis; 
+}
+
+.song-card-play {
+   width: 50px;
+   height: 50px; 
+   background-color: rgb(95, 157, 33);
+   position: absolute;
+   bottom: 10px;
+   left: 10px;
+   border-radius: 50%;
+   z-index: 6;
+   cursor: pointer;
+   transform: translateX(-60px);
+   transition: transform .2s;
+}
+
+.song-card-play::before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;  
+    right: 0;          
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    border-style: solid;
+    border-width: 7px 0 7px 10px;
+    border-color: transparent transparent transparent white;
+}
+
+/* Make the scroll bar fancy */
+
+::-webkit-scrollbar {width: 10px;}
+::-webkit-scrollbar-track {background-color: rgb(18, 18, 18);}
+::-webkit-scrollbar-thumb {background-color: rgb(11, 11, 11);}
+::-webkit-scrollbar-thumb:hover {background-color: rgb(55, 54, 54);}
+

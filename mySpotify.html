@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strive School, Ignite Week3, Day 5</title>
+    <link href="mySpotify.css" rel="stylesheet"/>
+</head>
+<body>
+
+    <div id="app-container">
+        <div id="main">
+            <div id="menu">
+                <img src="spot_logo.png" alt="spotify logo"/>
+                <!--go stile the menu-->
+                <div id="search">
+                <input type="text" placeholder="search.." id="search-text" />
+                <input type="button" onclick="searchSong()" value="Search" />
+                </div>
+            </div>
+            <div id="songs">
+            </div>
+        </div>    
+       
+        <div id="player">
+                This will be our player!
+        </div>
+    </div>
+    
+    <audio id="audio-player"></audio>
+
+    <script src ="mySpotify.js"></script>
+    <script> // execute our async code
+        window.onload = async () => {
+            await renderSongs("linkin park")
+            await renderSongs("lady gaga")
+            await renderSongs("muse")
+            // this array (which creates the menu) has to be invoked when the page is ready
+            loadMenu()
+        }
+    </script>
+    
+</body>
+</html>
